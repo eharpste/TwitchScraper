@@ -1,3 +1,9 @@
+# Ignoring dump and data files from the scraping process
+*.html
+*.tsv
+*.tdt #.tdt is an unofficial file format that I use a lot personally.
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
