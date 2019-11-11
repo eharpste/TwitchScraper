@@ -6,6 +6,8 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 
+CHROME_DRIVER_PATH = "C:/Users/Erik/Downloads/chromedriver_win32/chromedriver"
+
 
 def scrape_data(pages=10, sleepTime=10, dump=False):
     print('SCRAPING DATA')
@@ -17,8 +19,7 @@ def scrape_data(pages=10, sleepTime=10, dump=False):
     options.add_argument('--ignore-certificate-errors')
     options.add_argument('--incognito')
     # options.add_argument('--headless')
-    driver = webdriver.Chrome(
-        "C:/Users/Erik/Downloads/chromedriver_win32/chromedriver", options=options)
+    driver = webdriver.Chrome(CHROME_DRIVER_PATH, options=options)
     driver.implicitly_wait(sleepTime)
 
     driver.get("https://www.twitch.tv/directory")
