@@ -11,9 +11,10 @@ CHROME_DRIVER_PATH = "C:/Users/Erik/Downloads/chromedriver_win32/chromedriver"
 
 def scrape_data(pages=10, sleepTime=10, dump=False):
     print('SCRAPING DATA')
-    print('You should see an incognito Chrome window appear. Be sure to click on and'
-          'focus that window while the scraping process is running. Please do not do'
-          'anything else your computer until the scrape is complete.')
+    print('You should see an incognito Chrome window appear.')
+    print('Click on and focus that window while the scraping process is running.')
+    print('Please do not do anything else your computer until the scrape is complete.')
+    print('It also helps to fullscreen the window as it loads more cards.')
 
     options = webdriver.ChromeOptions()
     options.add_argument('--ignore-certificate-errors')
@@ -117,23 +118,23 @@ def output_tsv(games, stamp):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='This is a script for point sampling the'
-                                     'current most popular game categories on Twitch.tv'
-                                     'by loading up the category directory page and'
-                                     'scraping the page using Selenium.')
+                                     ' current most popular game categories on Twitch.tv'
+                                     ' by loading up the category directory page and'
+                                     ' scraping it using Selenium and BeautifulSoup.')
 
     parser.add_argument('-pages', type=int, default=10,
                         help="The number of times to page down the directory page to"
-                        "dynamically load more content")
+                        " dynamically load more content")
     parser.add_argument('-sleepTime', type=int, default=10,
                         help="The number of seconds to wait between pages to allow for"
-                        "more content to load in")
+                        " more content to load in")
     parser.add_argument('-dump', action='store_true',
                         help="Whether to dump the html data from paging for further"
-                        "analysis or formatting")
+                        " analysis or processing")
     parser.add_argument('-load_from', type=str, default=None,
                         help="An existing html dump to create a tsv file from instead of"
-                        "pulling new data from the web. Note that the sample time will be"
-                        " assumed to be creation time of the dump file.")
+                        " pulling new data from the web. Note that the sample time will"
+                        " be assumed to be creation time of the dump file.")
 
     args = parser.parse_args()
 
