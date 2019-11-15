@@ -103,7 +103,7 @@ def output_tsv(games, stamp):
     header = ['title', 'viewers', 'sample.time',
               'main.tag', 'appended.tags', 'num.tags'] + all_tags
 
-    with open(f_name, 'w') as out_f:
+    with open(f_name, 'w', encoding='utf-8') as out_f:
         out_f. write('\t'.join(header))
 
         for g in games:
